@@ -32,8 +32,6 @@ namespace FlowSharp.UITest
 
         private void ClickButton_Click(object sender, RoutedEventArgs e)
         {
-            AddComponent<AdderComponent>("Sum1");
-
             network = new Network();
             network.AddComponent<AdderComponent>("Sum1");
             network.AddComponent<AutoInputComponent>("EvenNumberGenerator");
@@ -45,12 +43,6 @@ namespace FlowSharp.UITest
             network.Connect("Sum1", "OUT", "NetworkOutput", "IN");
 
             network.Start();
-        }
-
-        public void AddComponent<T>(string name)
-            where T : class
-        {
-            var instance = (T)typeof(T).InvokeMember(typeof(T).Name, BindingFlags.CreateInstance, null, null, null);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
