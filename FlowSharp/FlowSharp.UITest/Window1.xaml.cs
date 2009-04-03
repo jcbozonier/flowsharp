@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -27,11 +28,13 @@ namespace FlowSharp.UITest
             InitializeComponent();
         }
 
+        private Network network;
+
         private void ClickButton_Click(object sender, RoutedEventArgs e)
         {
             AddComponent<AdderComponent>("Sum1");
 
-            var network = new Network();
+            network = new Network();
             network.AddComponent<AdderComponent>("Sum1");
             network.AddComponent<AutoInputComponent>("EvenNumberGenerator");
             network.AddComponent<AutoInputComponent>("OddNumberGenerator");
@@ -48,6 +51,11 @@ namespace FlowSharp.UITest
             where T : class
         {
             var instance = (T)typeof(T).InvokeMember(typeof(T).Name, BindingFlags.CreateInstance, null, null, null);
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            network.Stop();
         }
     }
 }

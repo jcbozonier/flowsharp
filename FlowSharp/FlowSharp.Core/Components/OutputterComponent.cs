@@ -23,12 +23,14 @@ namespace FlowSharp.Core.Components
             return null;
         }
 
+        private int _Sum;
+
         public void SendToPort(object value, string portName)
         {
             var typedValue = value as int?;
             if (typedValue == null) return;
 
-            Debug.WriteLine(typedValue);
+            _Sum += (int)typedValue;
         }
 
         public Dictionary<string, object> Ports
@@ -38,7 +40,7 @@ namespace FlowSharp.Core.Components
 
         public void Dispose()
         {
-            
+            Debug.WriteLine(_Sum);
         }
     }
 }

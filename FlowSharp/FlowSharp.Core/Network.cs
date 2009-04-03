@@ -39,29 +39,43 @@ namespace FlowSharp.Core
         {
             foreach(var component in _ComponentDictionary.Values)
             {
-                var componentConnections = _Connections.Where(connection => connection.FromName == component.Name);
+                // All connections that originate from my component
+                var componentConnections = _Connections.Where(connection => connection.FromName == component.Name).ToArray();
 
                 if(componentConnections.Count() == 0)
-                    _Done = true;
+                    return;
 
                 new Thread(
-                    () =>
-                        {   
-                            while(!_Done)
-                            {
-                                foreach(var connection in componentConnections)
-                                {
-                                    var output = component.GetFromPort(connection.FromPortName);
-                                    var toComponent = _ComponentDictionary[connection.ToName];
-                                    toComponent.SendToPort(output, connection.ToPortName);
-                                }
-                            }
+                    theComponent => _RunComponents(theComponent, componentConnections.ToArray()))
+                    .Start(component);
+            }
+        }
 
-                            foreach (var pair in _ComponentDictionary)
-                            {
-                                pair.Value.Dispose();
-                            }
-                        });
+        private void _RunComponents(object theComponent, NetworkConnection[] componentConnections)
+        {
+            var runningComponent = theComponent as INetworkComponent;
+
+            if (runningComponent == null) return;
+            
+            while (!_Done)
+            {
+                _ProcessConnections(runningComponent, componentConnections);
+                Thread.Sleep(20);
+            }
+
+            foreach (var pair in _ComponentDictionary)
+            {
+                pair.Value.Dispose();
+            }
+        }
+
+        private void _ProcessConnections(INetworkComponent runningComponent, NetworkConnection[] componentConnections)
+        {
+            foreach (var connection in componentConnections)
+            {
+                var output = runningComponent.GetFromPort(connection.FromPortName);
+                var toComponent = _ComponentDictionary[connection.ToName];
+                toComponent.SendToPort(output, connection.ToPortName);
             }
         }
 

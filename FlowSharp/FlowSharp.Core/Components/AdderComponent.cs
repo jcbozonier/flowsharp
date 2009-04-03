@@ -7,26 +7,57 @@ namespace FlowSharp.Core.Components
 {
     public class AdderComponent : INetworkComponent
     {
-        private List<int> _TermA;
-        private List<int> _TermB;
+        private readonly Queue<int> _TermA = new Queue<int>();
+        private readonly Queue<int> _TermB = new Queue<int>();
 
         public AdderComponent()
         {
-            // These need to be thread safe queues. meh on doing that right now.
-            // me needs sum studying on how to do that.
-            _TermA = new List<int>();
-            _TermB = new List<int>();
         }
 
         public string Name { get; private set; }
         public object GetFromPort(string portName)
         {
-            throw new System.NotImplementedException();
+            if(_TermA == null || _TermB == null) return null;
+
+            switch (portName)
+            {
+                case "OUT":
+                    lock (_TermA)
+                    lock(_TermB)
+                    {
+                        var termA = _TermA.Count > 0 ? _TermA.Dequeue() : 0;
+                        var termB = _TermB.Count > 0 ? _TermB.Dequeue() : 0;
+                        return termA + termB;
+                    }
+                default:
+                    throw new ArgumentException(portName + " does not exist on this component.");
+            }
         }
 
         public void SendToPort(object value, string portName)
         {
-            throw new System.NotImplementedException();
+            var typedValue = value as int?;
+            if(typedValue == null) return;
+
+            if(_TermA == null || _TermB == null) return;
+
+            switch (portName)
+            {
+                case "Term1IN":
+                    lock (_TermA)
+                    {
+                        _TermA.Enqueue((int)typedValue);
+                    }
+                    break;
+                case "Term2IN":
+                    lock (_TermB)
+                    {
+                        _TermB.Enqueue((int)typedValue);
+                    }
+                    break;
+                default:
+                    throw new ArgumentException(portName + " does not exist on this component.");
+            }
         }
 
         public Dictionary<string, object> Ports
