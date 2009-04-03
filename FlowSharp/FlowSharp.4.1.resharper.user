@@ -13,9 +13,31 @@
   </NAntValidationSettings>
   <RecentFiles>
     <RecentFiles>
-      <File id="FC3A65A7-9BD3-4E36-8CE2-ABC7CF6B1D92/f:Window1.xaml" caret="0" scrollPosition="0|0" />
+      <File id="FC3A65A7-9BD3-4E36-8CE2-ABC7CF6B1D92/f:Window1.xaml" caret="359" scrollPosition="0|0" />
+      <File id="FC3A65A7-9BD3-4E36-8CE2-ABC7CF6B1D92/f:Window1.xaml.cs" caret="912" scrollPosition="0|16" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:AdderComponent.cs" caret="310" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:AutoInputComponent.cs" caret="285" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:OutputterComponent.cs" caret="285" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:INetworkComponent.cs" caret="123" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/f:Network.cs" caret="691" scrollPosition="0|1" />
     </RecentFiles>
-    <RecentEdits />
+    <RecentEdits>
+      <File id="FC3A65A7-9BD3-4E36-8CE2-ABC7CF6B1D92/f:Window1.xaml" caret="359" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/f:Network.cs" caret="205" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:AutoInputComponent.cs" caret="143" scrollPosition="0|0" />
+      <File id="FC3A65A7-9BD3-4E36-8CE2-ABC7CF6B1D92/f:Window1.xaml.cs" caret="1145" scrollPosition="0|12" />
+      <File id="FC3A65A7-9BD3-4E36-8CE2-ABC7CF6B1D92/f:Window1.xaml.cs" caret="1558" scrollPosition="4|16" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/f:Network.cs" caret="1780" scrollPosition="0|10" />
+      <File id="FC3A65A7-9BD3-4E36-8CE2-ABC7CF6B1D92/f:Window1.xaml.cs" caret="912" scrollPosition="0|16" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:AdderComponent.cs" caret="183" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:AdderComponent.cs" caret="310" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:AutoInputComponent.cs" caret="285" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:OutputterComponent.cs" caret="285" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/d:Components/f:INetworkComponent.cs" caret="187" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/f:Network.cs" caret="1356" scrollPosition="0|29" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/f:Network.cs" caret="282" scrollPosition="0|0" />
+      <File id="8A6E7A83-D075-4B71-8FC4-4E6A7C79C386/f:Network.cs" caret="1159" scrollPosition="0|9" />
+    </RecentEdits>
   </RecentFiles>
   <UnitTestRunner>
     <CustomStartDirectory>
@@ -25,4 +47,45 @@
     <EnableUnitTesting>True</EnableUnitTesting>
     <Providers />
   </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="network" priority="3" />
+      <Item value="typeof" priority="4" />
+      <Item value="where" priority="1" />
+      <Item value="T" priority="2" />
+      <Item value="if" priority="3" />
+      <Item value="return" priority="0" />
+      <Item value="throw" priority="2" />
+      <Item value="new" priority="4" />
+      <Item value="Binder" priority="1" />
+      <Item value="null" priority="1" />
+      <Item value="AddComponent" priority="0" />
+      <Item value="public" priority="2" />
+      <Item value="string" priority="2" />
+      <Item value="Dictionary" priority="1" />
+      <Item value="object" priority="2" />
+      <Item value="Network" priority="0" />
+      <Item value="_ComponentDictionary" priority="6" />
+      <Item value="Dictionary&lt;string,object&gt;" priority="0" />
+      <Item value="name" priority="0" />
+      <Item value="InvalidOperationException" priority="0" />
+      <Item value="private" priority="0" />
+      <Item value="ComponentFrom" priority="3" />
+      <Item value="ArgumentException" priority="0" />
+      <Item value="ComponentTo" priority="1" />
+      <Item value="var" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Type">
+      <Item value="IsClass" priority="0" />
+      <Item value="InvokeMember" priority="0" />
+      <Item value="Name" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.BindingFlags">
+      <Item value="CreateInstance" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2">
+      <Item value="Add" priority="0" />
+      <Item value="ContainsKey" priority="1" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>
