@@ -10,10 +10,12 @@ namespace FlowSharp.Core
     public class Network
     {
         private readonly Dictionary<string, INetworkComponent> _ComponentDictionary;
+        private readonly List<NetworkConnection> _Connections;
 
         public Network()
         {
             _ComponentDictionary = new Dictionary<string, INetworkComponent>();
+            _Connections = new List<NetworkConnection>();
         }
 
         public void AddComponent(Type type, string name)
@@ -28,10 +30,12 @@ namespace FlowSharp.Core
             if(!_ComponentDictionary.ContainsKey(ComponentTo))
                 throw new ArgumentException("This component has not been added to the network.", ComponentFrom);
 
-            var from = _ComponentDictionary[ComponentFrom];
-            var to = _ComponentDictionary[ComponentTo];
+            var connection = new NetworkConnection(ComponentFrom, PortFrom, ComponentTo, PortTo);
 
+            if(_Connections.Contains(connection))
+                throw new InvalidOperationException("This connection has already been made! You can't do it twice!");
 
+            _Connections.Add(connection);
         }
 
         public void Start()
