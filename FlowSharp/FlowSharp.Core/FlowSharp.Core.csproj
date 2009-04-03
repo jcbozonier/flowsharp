@@ -50,6 +50,7 @@
     <Compile Include="Components\INetworkComponent.cs" />
     <Compile Include="Components\OutputterComponent.cs" />
     <Compile Include="Network.cs" />
+    <Compile Include="NetworkConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
